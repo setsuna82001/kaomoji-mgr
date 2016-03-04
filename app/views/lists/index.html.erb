@@ -1,0 +1,12 @@
+<table border="1">
+  <% @list.each_with_index do |data, idx| %>
+    <tr>
+      <td><%= "%02d" % idx.next %></td>
+      <td id="copy_text_<%= idx %>"><%= data.aa %></td>
+      <td><%= data.txt %></td>
+      <td>
+        <button class="zcopy" data-clipboard-target="copy_text_<%= idx %>">copy</button>
+      </td>
+    </tr>
+  <% end %>
+</table>

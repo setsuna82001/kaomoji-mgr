@@ -1,0 +1,23 @@
+default: &default
+  adapter:  mysql2
+  encoding: utf8
+  timeout:  5000
+  database: kaomoji
+  username: root
+  password:
+  pool: 5
+#  host:     0.0.0.0
+
+development:
+  <<: *default
+  socket:   /var/run/mysqld/mysqld.sock
+
+test:
+  <<: *default
+  socket:   /var/run/mysqld/mysqld.sock
+
+production:
+  <<: *default
+  socket:   /var/lib/mysql/mysql.sock
+  username: <%= ENV["MYSQL_USER"] %>
+  password: <%= ENV["MYSQL_PASS"] %>
